@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Link from 'next/link';
+import React from 'react';
 import styled from 'styled-components';
 
 import Reset from '../styles/Reset';
@@ -16,18 +18,30 @@ const Main = styled(Box)`
   }
 `;
 
-const Layout: React.FC = ({ children }) => {
+interface LayoutProps {
+  subTitle?: string;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children, subTitle }) => {
   return (
     <>
       <Head>
-        <title>Hello NEXT!</title>
+        <title>DEVDEV {subTitle ? `- ${subTitle}` : ''}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Reset />
 
       <Header />
-      <Main>{children}</Main>
+      <Main>
+        {subTitle && <h1>{subTitle}</h1>}
+        {children}
+        <br />
+        <br />
+        <Link href="/">
+          <a>홈으로</a>
+        </Link>
+      </Main>
       <Box>Your comment section here</Box>
       <Footer />
     </>

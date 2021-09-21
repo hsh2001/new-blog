@@ -23,7 +23,7 @@ const HeaderContainer = styled.header`
 const Header: React.FC = () => (
   <HeaderContainer>
     <Link href="/">
-      <a>BLOG NAME HERE</a>
+      <a>DEVDEV</a>
     </Link>
   </HeaderContainer>
 );

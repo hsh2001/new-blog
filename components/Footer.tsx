@@ -9,7 +9,7 @@ const FooterContainer = styled.footer`
 
 const Footer: React.FC = () => (
   <FooterContainer>
-    Copyright 2021 John Doe. All rights reserved.
+    Copyright 2021 Seung hyun Hwang. All rights reserved.
   </FooterContainer>
 );
 
