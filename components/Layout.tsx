@@ -20,14 +20,26 @@ const Main = styled(Box)`
 
 interface LayoutProps {
   subTitle?: string;
+  ogImageSrc?: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, subTitle }) => {
+const Layout: React.FC<LayoutProps> = ({
+  children,
+  subTitle,
+  ogImageSrc = '',
+}) => {
+  const title = `DEVDEV ${subTitle ? `- ${subTitle}` : ''}`;
+
   return (
     <>
       <Head>
-        <title>DEVDEV {subTitle ? `- ${subTitle}` : ''}</title>
+        <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content="website" />
+
+        {ogImageSrc && <meta property="og:image" content={ogImageSrc} />}
       </Head>
 
       <Reset />
